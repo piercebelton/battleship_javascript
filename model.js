@@ -1,6 +1,7 @@
 
 var board = []; //back-end array to hold values that are represented in View's table
 var ship = 1; //Sets a ship variable to 1
+var fiveBlockShip = 5;
 var shipsRemaining = 5;
 
 var torpedoes = 5; //the # of torpedoes that the user has
@@ -127,4 +128,35 @@ function setShips() {
 
 function remainingShips() {
     shipsRemaining--;
+}
+
+function setFiveBlockShip() {
+  var rowFiver = Math.floor(Math.random()*10);
+  var columnFiver = Math.floor(Math.random()*10);
+  var verticalOrHorizontal = Math.floor(Math.random()*2); //random number to assign whether the ship is vertical(0) or horizontal (1)
+  console.log("Vertical or Horizontal: " + verticalOrHorizontal);
+  console.log("FiveBlock: "+ rowFiver + " " + columnFiver);
+
+  if (verticalOrHorizontal === 0) { //if random number is 1, make vertical ship
+    while (columnFiver + 4 > 9) {//if column + 4 is greater than 9 the ship will go off the board, so generate a new random number instead
+      columnFiver = Math.floor(Math.random()*10); //generate new number
+    }
+    //If the ship will fit, then set a 5 in each square in the vertical column
+    board[rowFiver][columnFiver] = ship;
+    board[rowFiver][columnFiver+1] = ship;
+    board[rowFiver][columnFiver+2] = ship;
+    board[rowFiver][columnFiver+3] = ship;
+    board[rowFiver][columnFiver+4] = ship;
+  }
+
+  if (verticalOrHorizontal === 1) {
+    while (rowFiver + 5 > 9 ) {//if the 5 block ship goes off the board then generate a new random number
+      rowFiver = Math.floor(Math.random()*10);
+    }
+    board[rowFiver][columnFiver] = ship;
+    board[rowFiver+1][columnFiver] = ship;
+    board[rowFiver+2][columnFiver] = ship;
+    board[rowFiver+3][columnFiver] = ship;
+    board[rowFiver+4][columnFiver] = ship;
+  }
 }

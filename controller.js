@@ -1,6 +1,7 @@
 $(document).ready(function() {
   createBoard();
   buildTable();
+  setFiveBlockShip();
   setShips();
 
 //alert to be sure everything is linked properly
