@@ -8,6 +8,10 @@ $(document).ready(function() {
   $("td").on("click", function() {
     checkClick(this);
     showTorpedoes();
+    if (shipsRemaining === 0) {
+      $("td").off();
+      $("#torpedoCount").text("Game over. You Win!");
+    }
     $(this).off();
   });
 
@@ -43,6 +47,7 @@ $(document).ready(function() {
       $(thing).addClass("miss");
     } else {
       $(thing).addClass("hit");
+      remainingShips();
     }
   }
 

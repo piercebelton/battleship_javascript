@@ -1,6 +1,7 @@
 
 var board = []; //back-end array to hold values that are represented in View's table
 var ship = 1; //Sets a ship variable to 1
+var shipsRemaining = 5;
 
 var torpedoes = 0; //the # of torpedoes that the user has
 
@@ -22,4 +23,8 @@ function setShips() {
     board[row][column] = ship;
     console.log("row: " + row + " column: " + column);
   }
+}
+
+function remainingShips() {
+    shipsRemaining--;
 }
