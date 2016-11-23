@@ -5,6 +5,12 @@ $(document).ready(function() {
 //call for loops from the model to create the table!
   $("td").on("click", function() {
     $(this).addClass("clicked");
+    countTorpedoes();
+    if (torpedoes === 1) {
+      $("#torpedoCount").text("You have used " + torpedoes + " torpedo!");
+    } else {
+      $("#torpedoCount").text("You have used " + torpedoes + " torpedoes!");
+    }
   });
 
   $("#start").on("click", function() {
