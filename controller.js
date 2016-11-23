@@ -1,5 +1,7 @@
 $(document).ready(function() {
   createBoard();
+  buildTable();
+  setShips();
 
 //alert to be sure everything is linked properly
 //call for loops from the model to create the table!
