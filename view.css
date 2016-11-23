@@ -15,6 +15,9 @@ tr {
   /*margin: 0px;*/
 }
 
-.clicked {
+.miss {
   background-color: pink;
+}
+.hit {
+  background-color: orange;
 }

@@ -6,13 +6,8 @@ $(document).ready(function() {
 //alert to be sure everything is linked properly
 //call for loops from the model to create the table!
   $("td").on("click", function() {
-    $(this).addClass("clicked");
-    countTorpedoes();
-    if (torpedoes === 1) {
-      $("#torpedoCount").text("You have used " + torpedoes + " torpedo!");
-    } else {
-      $("#torpedoCount").text("You have used " + torpedoes + " torpedoes!");
-    }
+    checkClick(this);
+    showTorpedoes();
     $(this).off();
   });
 
@@ -33,7 +28,23 @@ $(document).ready(function() {
     }
   }
 
+  function showTorpedoes() {
+    countTorpedoes();
+    if (torpedoes === 1) {
+      $("#torpedoCount").text("You have used " + torpedoes + " torpedo!");
+    } else {
+      $("#torpedoCount").text("You have used " + torpedoes + " torpedoes!");
+    }
+  }
 
+  function checkClick(thing) {
+    var position = $(thing).attr("id").split("");
+    if (board[position[0]][position[1]] === 0) {
+      $(thing).addClass("miss");
+    } else {
+      $(thing).addClass("hit");
+    }
+  }
 
 
 

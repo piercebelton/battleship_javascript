@@ -20,5 +20,6 @@ function setShips() {
     var row = Math.floor(Math.random()*10);
     var column = Math.floor(Math.random()*10);
     board[row][column] = ship;
+    console.log("row: " + row + " column: " + column);
   }
 }
