@@ -1,9 +1,9 @@
 /*set table and td sizes here*/
-table {
+/*table {
   height: 500px;
   width: 500px;
-  /*border: 1px solid black;*/
-}
+  border: 1px solid black;
+}*/
 td {
   height: 49px;
   width: 49px;
@@ -12,5 +12,9 @@ td {
   /*margin: -5px;*/
 }
 tr {
-  margin: 0px;
+  /*margin: 0px;*/
+}
+
+.clicked {
+  background-color: pink;
 }
