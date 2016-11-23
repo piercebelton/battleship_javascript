@@ -10,9 +10,13 @@ $(document).ready(function() {
     showTorpedoes();
     if (shipsRemaining === 0) {
       $("td").off();
-      $("#torpedoCount").text("Game over. You Win!");
+      $("#torpedoCount").text("Game over. You WIN!");
     }
     $(this).off();
+    if (torpedoes === 0) {
+      $("td").off();
+      $("#torpedoCount").text("Game over. You LOSE!");
+    }
   });
 
   $("#start").on("click", function() {
