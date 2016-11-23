@@ -3,7 +3,7 @@ var board = []; //back-end array to hold values that are represented in View's t
 var ship = 1; //Sets a ship variable to 1
 var shipsRemaining = 5;
 
-var torpedoes = 25; //the # of torpedoes that the user has
+var torpedoes = 5; //the # of torpedoes that the user has
 
 function buildTable() { //builds back-end array to hold values that are represented in View's table
   for (var i = 0; i < 10; i++) {

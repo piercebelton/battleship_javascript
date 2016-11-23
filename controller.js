@@ -16,6 +16,7 @@ $(document).ready(function() {
     if (torpedoes === 0) {
       $("td").off();
       $("#torpedoCount").text("Game over. You LOSE!");
+      displayShips(this);
     }
   });
 
@@ -52,6 +53,16 @@ $(document).ready(function() {
     } else {
       $(thing).addClass("hit");
       remainingShips();
+    }
+  }
+
+  function displayShips() {
+    for (var i = 0; i < board.length; i++) {
+      for (var j = 0; j < board[i].length; j++) {
+        if (board[i][j] === 1) {
+          $("#" + i + j).addClass("hit");
+        }
+      }
     }
   }
 
