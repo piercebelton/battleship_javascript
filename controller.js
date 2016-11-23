@@ -2,7 +2,8 @@ $(document).ready(function() {
   createBoard();
   buildTable();
   setFiveBlockShip();
-  setShips();
+  setFourBlockShip();
+  setSingleShips(); //set singleShips runs last because it has the check empty logic
 
 //alert to be sure everything is linked properly
 //call for loops from the model to create the table!
