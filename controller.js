@@ -11,6 +11,7 @@ $(document).ready(function() {
     } else {
       $("#torpedoCount").text("You have used " + torpedoes + " torpedoes!");
     }
+    $(this).off();
   });
 
   $("#start").on("click", function() {
