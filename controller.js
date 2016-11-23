@@ -40,9 +40,9 @@ $(document).ready(function() {
   function showTorpedoes() {
     countTorpedoes();
     if (torpedoes === 1) {
-      $("#torpedoCount").text("You have used " + torpedoes + " torpedo!");
+      $("#torpedoCount").text("You have " + torpedoes + " torpedo left.");
     } else {
-      $("#torpedoCount").text("You have used " + torpedoes + " torpedoes!");
+      $("#torpedoCount").text("You have " + torpedoes + " torpedoes left.");
     }
   }
 
