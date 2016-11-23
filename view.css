@@ -1,0 +1,16 @@
+/*set table and td sizes here*/
+table {
+  height: 500px;
+  width: 500px;
+  /*border: 1px solid black;*/
+}
+td {
+  height: 49px;
+  width: 49px;
+  /*border: 1px solid black;*/
+  background-color: lightgray;
+  /*margin: -5px;*/
+}
+tr {
+  margin: 0px;
+}
