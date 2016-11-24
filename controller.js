@@ -3,7 +3,9 @@ $(document).ready(function() {
   buildTable();
   setFiveBlockShip();
   setFourBlockShip();
-  setSingleShips(); //set singleShips runs last because it has the check empty logic
+  setSingleShips();
+  displayShips(); // take this off to hide ships until click
+
 
 //alert to be sure everything is linked properly
 //call for loops from the model to create the table!
