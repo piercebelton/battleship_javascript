@@ -1,9 +1,14 @@
 
 var board = []; //back-end array to hold values that are represented in View's table
 var ship = 1; //Sets a ship variable to 1
-var shipsRemaining = 3;
+var shipsRemaining = 24;
+  //This needs to be the total count of squares (1 5block, 2 4block, 2 3block, 2 2block, 1 1block)
 
-var torpedoes = 5; //the # of torpedoes that the user has
+function remainingShips() {
+    shipsRemaining--; //Decrements the ships remaining
+  }
+
+var torpedoes = 25; //the # of torpedoes that the user has
 
 function buildTable() { //builds back-end array to hold values that are represented in View's table
   for (var i = 0; i < 10; i++) {
@@ -121,9 +126,6 @@ function checkEmptyCells(row, column, length, direction) {
         // board[row][column+1] // cell to right
         // board[row][column-1] // cell to left
 
-function remainingShips() {
-    shipsRemaining--; //Decrements the ships remaining
-}
 
 function setFiveBlockShip() {
   var fiveBlock = 0;

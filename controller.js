@@ -14,7 +14,7 @@ $(document).ready(function() {
   $("td").on("click", function() {
     checkClick(this);
     showTorpedoes();
-    if (shipsRemaining === 0) {
+    if (shipsRemaining === 0) { //Need to figure out how this count works
       $("td").off();
       $("#torpedoCount").text("Game over. You WIN!");
     }

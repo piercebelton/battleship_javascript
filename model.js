@@ -17,11 +17,12 @@ function countTorpedoes() { //modifies the # of torpedoes the user has
 
 function setSingleShips() {
   var singleShip = 0;
-  while (singleShip < 1) { //This loop runs until there are 3 single ships
+  while (singleShip < 3) { //This loop runs until there are 3 single ships
     var row = Math.floor(Math.random()*10);
     var column = Math.floor(Math.random()*10);
 
-    //check for if row and column are both between 1 and 8
+
+//check for if row and column are both between 1 and 8
     if (row > 0 && row < 9 && column > 0 && column < 9){
       if (board[row][column] === 1 || board[row+1][column] === 1 || board[row-1][column] === 1 || board[row][column+1] === 1 || board[row][column-1] === 1 || board[row+1][column+1] === 1 || board[row+1][column-1] === 1 || board[row-1][column-1] === 1 || board[row-1][column+1] === 1) {
         // if the value of board equals 1, then do not place the ship and reroll random values.
