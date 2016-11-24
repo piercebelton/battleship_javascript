@@ -3,6 +3,8 @@ $(document).ready(function() {
   buildTable();
   setFiveBlockShip();
   setFourBlockShip();
+  setThreeBlockShip();
+  setTwoBlockShip();
   setSingleShips();
   displayShips(); // take this off to hide ships until click
 
