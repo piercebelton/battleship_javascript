@@ -49,11 +49,11 @@ $(document).ready(function() {
   }
 
   function checkClick(thing) {
-    var position = $(thing).attr("id").split("");
-    if (board[position[0]][position[1]] === 0) {
-      $(thing).addClass("miss");
+    var position = $(thing).attr("id").split(""); //this takes the id attribute and splits it into 2 numbers (the row and column)
+    if (board[position[0]][position[1]] === 0) { //this finds the value at the board/array position of the two numbers
+      $(thing).addClass("miss"); //class miss is added if there is no ship (value = 0)
     } else {
-      $(thing).addClass("hit");
+      $(thing).addClass("hit"); //class hit is added if there is a ship (value = 1)
       remainingShips();
     }
   }

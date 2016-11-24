@@ -21,6 +21,73 @@ function setSingleShips() {
     var row = Math.floor(Math.random()*10);
     var column = Math.floor(Math.random()*10);
 
+
+    function checkEmptyCells(row,column,length,direction) {
+      array = [];
+
+      for (var i = 0; i < length; i++) {//this will move the checker along the ships length
+          //the checker will neeed to take into account when the ship is greater than 1 in lenght so that it does not check sides that are part of the ship
+          //do row and column checks first
+          //then do length check
+          //then do direction check
+
+          //if its horizontal then it add
+          if (direction = 1) {
+          column + i;
+        }
+
+          //if its vertical then add
+          if (direction = 0){
+          row + i;
+        }
+
+          //ALL CHECKS will run for SINGLE SHIPS
+          if (length >= 1) {
+          array.push(board[row][column],
+            board[row-1][column-1], board[row-1][column+1], board[row+1][column+1], board[row+1][column-1]);
+          }
+
+          //these checks will run no matter what length ship
+          // board[row][column] // same cell
+          // board[row-1][column-1] // cell upper left diagonal
+          // board[row-1][column+1] // cell upper right diagonal
+          // board[row+1][column+1] // cell lower left diagonal
+          // board[row+1][column-1] // cell lower right diagonal
+
+          ///ALL CHECKS CAN CHECK NO MATTER WHAT UNTIL YOU PLACE A SHIP
+
+          //These checks will only run for horizontal ships or single ships
+          if (length === 1 || direction === 1) {
+          array.push(board[row-1][column],board[row+1][column]);
+        }
+
+          // board[row-1][column] // cell above
+          // board[row+1][column] // cell below
+
+          //These checks will only run for vertical ships or single ships
+          if (length === 1 || direction === 0) {
+          array.push(board[row][column+1],board[row][column-1]);
+        }
+
+          // board[row][column+1] // cell to right
+          // board[row][column-1] // cell to left
+          return array.some(function(cellValue){
+            return cellValue === 1;
+          });
+
+
+
+
+
+
+
+
+
+        }
+      }
+    }
+
+
 //check for if row and column are both between 1 and 8
     if (row > 0 && row < 9 && column > 0 && column < 9){
       if (board[row][column] === 1 || board[row+1][column] === 1 || board[row-1][column] === 1 || board[row][column+1] === 1 || board[row][column-1] === 1 || board[row+1][column+1] === 1 || board[row+1][column-1] === 1 || board[row-1][column-1] === 1 || board[row-1][column+1] === 1) {
