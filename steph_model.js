@@ -142,11 +142,15 @@ function setFiveBlockShip() {
       }
       //If the ship will fit, then set a 1 in each square in the vertical column
       console.log("5Ship SET RowCol 0: " + row + " " + column);
-      board[row][column] = ship;
-      board[row+1][column] = ship;
-      board[row+2][column] = ship;
-      board[row+3][column] = ship;
-      board[row+4][column] = ship;
+      for (var i = 0; i  < 5; i++) {
+        board[row + i][column] = ship;
+        console.log("5Ship Build: " + (row + i) + " " + column);
+      }
+      // board[row][column] = ship;
+      // board[row+1][column] = ship;
+      // board[row+2][column] = ship;
+      // board[row+3][column] = ship;
+      // board[row+4][column] = ship;
       fiveBlock++;
       console.log("5Ship count: " + fiveBlock);
     } else {
@@ -156,11 +160,15 @@ function setFiveBlockShip() {
         console.log("5Ship RowCol Loop 1: " + row + " " + column);
       }
       console.log("5Ship SET RowCol 1: " + row + " " + column);
-      board[row][column] = ship;
-      board[row][column+1] = ship;
-      board[row][column+2] = ship;
-      board[row][column+3] = ship;
-      board[row][column+4] = ship;
+      for (var i = 0; i  < 5; i++) {
+        board[row][column + i] = ship;
+        console.log("5Ship Build: " + row + " " + (column + i));
+      }
+      // board[row][column] = ship;
+      // board[row][column+1] = ship;
+      // board[row][column+2] = ship;
+      // board[row][column+3] = ship;
+      // board[row][column+4] = ship;
       fiveBlock++;
       console.log("5Ship count: " + fiveBlock);
     } //Ends else
@@ -185,10 +193,14 @@ function setFourBlockShip() {
       }
       console.log("4B SET RowCol 0: " + row + " " + column);
       //If the ship will fit, then set a 5 in each square in the vertical column
-      board[row][column] = ship;
-      board[row+1][column] = ship;
-      board[row+2][column] = ship;
-      board[row+3][column] = ship;
+      for (var i = 0; i  < 4; i++) {
+        board[row + i][column] = ship;
+        console.log("4Ship Build: " + (row + i) + " " + column);
+      }
+      // board[row][column] = ship;
+      // board[row+1][column] = ship;
+      // board[row+2][column] = ship;
+      // board[row+3][column] = ship;
       fourShip++;
       console.log("4Ship Count: " + fourShip);
     } else {
@@ -198,10 +210,14 @@ function setFourBlockShip() {
         console.log("4B RowCol Loop 1: " + row + " " + column);
       }
       console.log("4B SET RowCol 1: " + row + " " + column);
-      board[row][column] = ship;
-      board[row][column+1] = ship;
-      board[row][column+2] = ship;
-      board[row][column+3] = ship;
+      for (var i = 0; i  < 5; i++) {
+        board[row][column + i] = ship;
+        console.log("4Ship Build: " + row + " " + (column + i));
+      }
+      // board[row][column] = ship;
+      // board[row][column+1] = ship;
+      // board[row][column+2] = ship;
+      // board[row][column+3] = ship;
       fourShip++;
       console.log("4Ship Count: " + fourShip);
     }
