@@ -50,10 +50,10 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Row++: " + row);
+        console.log("Row++: " + row + " " +column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log("Col++: " + column);
+        console.log(row + " Col++: " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item === 1;
@@ -73,10 +73,10 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Row++: " + row);
+        console.log("Row++: " + row + " " + column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log("Col++: " + column);
+        console.log(row + " Col++: " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item === 1;
@@ -93,10 +93,10 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Row++: " + row);
+        console.log("Row++: " + row + " " + column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log("Col++: " + column);
+        console.log(row + " Col++: " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item === 1;
@@ -133,44 +133,36 @@ function setFiveBlockShip() {
     var column = Math.floor(Math.random()*10);
     var direction = Math.floor(Math.random()*2); //random number to assign whether the ship is vertical(0) or horizontal (1)
     console.log("5Ship Direction: " + direction);
-    console.log("5Ship RowCol START: " + row + " " + column);
+    console.log("5Ship START: " + row + " " + column);
     if (direction === 0) { //if random number is 0, make vertical ship
       while ((row + 4 > 9) || (checkEmptyCells(row, column, 5, direction) === true)) { //if column + 4 is greater than 9 the ship will go off the board, so generate a new random number instead
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
-        console.log("5Ship RowCol Loop 0: " + row + " " + column);
+        console.log("5Ship Loop Vertical: " + row + " " + column);
       }
       //If the ship will fit, then set a 1 in each square in the vertical column
-      console.log("5Ship SET RowCol 0: " + row + " " + column);
+      console.log("5Ship SET Vertical: " + row + " " + column);
       for (var i = 0; i  < 5; i++) {
         board[row + i][column] = ship;
-        console.log("5Ship Build: " + (row + i) + " " + column);
+        console.log("5Ship Build Vertical: " + (row + i) + " " + column);
       }
-      // board[row][column] = ship;
-      // board[row+1][column] = ship;
-      // board[row+2][column] = ship;
-      // board[row+3][column] = ship;
-      // board[row+4][column] = ship;
       fiveBlock++;
       console.log("5Ship count: " + fiveBlock);
+      console.log(" ");
     } else {
       while ((column + 4 > 9) || (checkEmptyCells(row,column,5,direction) === true)) { //if the 5 block ship goes off the board then generate a new random number
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
-        console.log("5Ship RowCol Loop 1: " + row + " " + column);
+        console.log("5Ship Loop Horizontal: " + row + " " + column);
       }
-      console.log("5Ship SET RowCol 1: " + row + " " + column);
+      console.log("5Ship SET Horizontal: " + row + " " + column);
       for (var i = 0; i  < 5; i++) {
         board[row][column + i] = ship;
-        console.log("5Ship Build: " + row + " " + (column + i));
+        console.log("5Ship Build Horizontal: " + row + " " + (column + i));
       }
-      // board[row][column] = ship;
-      // board[row][column+1] = ship;
-      // board[row][column+2] = ship;
-      // board[row][column+3] = ship;
-      // board[row][column+4] = ship;
       fiveBlock++;
       console.log("5Ship count: " + fiveBlock);
+      console.log(" ");
     } //Ends else
   } //Ends while loop
 }//Ends Set 5block
@@ -189,37 +181,32 @@ function setFourBlockShip() {
       while ((row + 3 > 9) || (checkEmptyCells(row, column, 4, direction) === true)) { //if column + 4 is greater than 9 the ship will go off the board, so generate a new random number instead
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
-        console.log("4B RowCol Loop 0: " + row + " " + column);
+        console.log("4Ship Loop Vertical: " + row + " " + column);
       }
-      console.log("4B SET RowCol 0: " + row + " " + column);
+      console.log("4Ship SET Vertical: " + row + " " + column);
       //If the ship will fit, then set a 5 in each square in the vertical column
       for (var i = 0; i  < 4; i++) {
         board[row + i][column] = ship;
-        console.log("4Ship Build: " + (row + i) + " " + column);
+        console.log("4Ship Build Vertical: " + (row + i) + " " + column);
       }
-      // board[row][column] = ship;
-      // board[row+1][column] = ship;
-      // board[row+2][column] = ship;
-      // board[row+3][column] = ship;
+
       fourShip++;
       console.log("4Ship Count: " + fourShip);
+      console.log(" ");
     } else {
       while ((column + 3 > 9) || (checkEmptyCells(row, column, 4, direction) === true)) { //if column + 4 is greater than 9 the ship will go off the board, so generate a new random number instead
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
-        console.log("4B RowCol Loop 1: " + row + " " + column);
+        console.log("4Ship Loop Horizontal: " + row + " " + column);
       }
-      console.log("4B SET RowCol 1: " + row + " " + column);
+      console.log("4Ship SET Horizontal: " + row + " " + column);
       for (var i = 0; i  < 5; i++) {
         board[row][column + i] = ship;
-        console.log("4Ship Build: " + row + " " + (column + i));
+        console.log("4Ship Build Horizontal: " + row + " " + (column + i));
       }
-      // board[row][column] = ship;
-      // board[row][column+1] = ship;
-      // board[row][column+2] = ship;
-      // board[row][column+3] = ship;
       fourShip++;
       console.log("4Ship Count: " + fourShip);
+      console.log(" ");
     }
   }
 }
