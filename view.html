@@ -8,15 +8,17 @@
     <script src="controller.js"></script>
     <script src="steph_model.js"></script>
     <link href="view.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Quantico:700" rel="stylesheet">
     <meta charset="utf-8">
     <title>The Best Battleship</title>
   </head>
   <body>
-    <h1>The Best Battleship</h1>
-<!-- need a board (table built by for loops in Model called by Controller)
-each cell of the table needs an individual id -->
-    <button id="start">Start Game</button>
-    <p id="torpedoCount">Ready for launch!</p>
+    <div class="header">
+      <h1>The Best Battleship</h1>
+    </div>
+    <h3 id="torpedoCount">Ready for launch!</h3>
     <table id="table"></table>
+  </br>
+    <button id="start">New Game</button>
   </body>
 </html>

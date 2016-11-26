@@ -20,6 +20,15 @@ function countTorpedoes() { //modifies the # of torpedoes the user has
   torpedoes--;
 }
 
+function newGame() {
+  board = [];
+  buildTable();
+  console.clear();
+  shipsRemaining = 24;
+  torpedoes = 25;
+}
+
+
 function setXblockShips(length, shipsNeeded) {
   var shipCount = 0;
   console.log("Length and Needed: " + length + " " + shipsNeeded);

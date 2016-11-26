@@ -11,8 +11,8 @@ $(document).ready(function() {
   setXblockShips(3, 2);
   setXblockShips(2, 2);
   setXblockShips(1, 1);
-  
-  displayShips(); // take this off to hide ships until click
+
+  // displayShips(); // take this off to hide ships until click
 
 
 //alert to be sure everything is linked properly
@@ -21,20 +21,22 @@ $(document).ready(function() {
     checkClick(this);
     showTorpedoes();
     if (shipsRemaining === 0) { //Need to figure out how this count works
-      $("td").off();
-      $("#torpedoCount").text("Game over. You WIN!");
+      $("td").off("click");
+      $("#torpedoCount").text("Mission accomplished! You WIN! ");
     }
     $(this).off();
     if (torpedoes === 0) {
-      $("td").off();
+      $("td").off("click");
       $("#torpedoCount").text("Game over. You LOSE!");
       displayShips(this);
     }
   });
 
   $("#start").on("click", function() {
-  buildTable();
-
+    location.reload();
+    // newGame();
+    // $("td").removeClass("hit");
+    // $("td").removeClass("miss");
   });
 
 
@@ -52,9 +54,9 @@ $(document).ready(function() {
   function showTorpedoes() {
     countTorpedoes();
     if (torpedoes === 1) {
-      $("#torpedoCount").text("You have " + torpedoes + " torpedo left.");
+      $("#torpedoCount").text("Torpedo remainging: " + torpedoes);
     } else {
-      $("#torpedoCount").text("You have " + torpedoes + " torpedoes left.");
+      $("#torpedoCount").text("Torpedoes remaining: " + torpedoes);
     }
   }
 
