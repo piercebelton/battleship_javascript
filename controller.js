@@ -1,11 +1,17 @@
 $(document).ready(function() {
   createBoard();
   buildTable();
-  setFiveBlockShip();
-  setFourBlockShip();
-  setThreeBlockShip();
-  setTwoBlockShip();
-  setSingleShips();
+  // setFiveBlockShip();
+  // setFourBlockShip();
+  // setThreeBlockShip();
+  // setTwoBlockShip();
+  // setSingleShips();
+  setXblockShips(5, 1);
+  setXblockShips(4, 2);
+  setXblockShips(3, 2);
+  setXblockShips(2, 2);
+  setXblockShips(1, 1);
+  
   displayShips(); // take this off to hide ships until click
 
 
