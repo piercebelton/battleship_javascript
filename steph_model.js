@@ -28,48 +28,58 @@ function newGame() {
   torpedoes = 25;
 }
 
+function shipDirection(direction) {
+  //Changes 0/1 to vertical or horizontal; need for console.log
+  if (direction === 0) {
+    return "Vertical";
+  } else {
+    return "Horizontal";
+  }
+}
 
-function setXblockShips(length, shipsNeeded) {
+function setXBlockShips(length, shipsNeeded) {
+  console.log("------- BEGIN SET " + length + "SHIP -------");
   var shipCount = 0;
-  console.log("Length and Needed: " + length + " " + shipsNeeded);
+  console.log("Setting: " + shipsNeeded + " " + length + "Ships");
 
   while (shipCount < shipsNeeded) {
     var row = Math.floor(Math.random()*10);
     var column = Math.floor(Math.random()*10);
     //variable direction assigns random number for vertical(0) or horizontal (1)
     var direction = Math.floor(Math.random()*2);
-    console.log("Ship Direction: " + direction);
-    console.log("Ship START: " + row + " " + column);
+    console.log(length + "Ship Direction: " + shipDirection(direction));
+    console.log(length + "Ship START: " + row + " " + column);
 
 
     if (direction === 0) { //vertical ship
       while ((row + (length - 1) > 9) || (checkEmptyCells(row, column, length, direction) === true)) { //if column + 4 is greater than 9 the ship will go off the board, so generate a new random number instead
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
-        console.log("Ship Loop Vertical: " + row + " " + column);
+        console.log(length + "Ship Loop Vertical: " + row + " " + column);
       }
       //If the ship will fit, then set a 1 in each square in the vertical column
-      console.log("Ship SET Vertical: " + row + " " + column);
+      console.log(length + "Ship SET Vertical: " + row + " " + column);
       for (var i = 0; i  < length; i++) {
         board[row + i][column] = ship;
-        console.log("Ship Build Vertical: " + (row + i) + " " + column);
+        console.log(length + "Ship Build Vertical: " + (row + i) + " " + column);
       }
       shipCount++;
-      console.log("Ship count: " + shipCount);
+      console.log(length + "Ship count: " + shipCount);
+      console.log("-------- END SET " + length + "SHIP --------");
       console.log(" ");
     } else { //horizontal ship
       while ((column + (length - 1) > 9) || (checkEmptyCells(row,column,length,direction) === true)) { //if the 5 block ship goes off the board then generate a new random number
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
-        console.log("Ship Loop Horizontal: " + row + " " + column);
+        console.log(length + "Ship Loop Horizontal: " + row + " " + column);
       }
-      console.log("Ship SET Horizontal: " + row + " " + column);
+      console.log(length + "Ship SET Horizontal: " + row + " " + column);
       for (var i = 0; i  < length; i++) {
         board[row][column + i] = ship;
-        console.log("Ship Build Horizontal: " + row + " " + (column + i));
+        console.log(length + "Ship Build Horizontal: " + row + " " + (column + i));
       }
       shipCount++;
-      console.log("Ship count: " + shipCount);
+      console.log(length + "Ship count: " + shipCount);
       console.log(" ");
     } //Ends else
   } //Ends while loop
@@ -79,8 +89,7 @@ function checkEmptyCells(row, column, length, direction) {
   array = [];
 
   for (var i = 0; i < length; i++) {//this will move the checker along the ships length
-    if (row >= 9) {
-      console.log("R " + row);
+    if (row >= 9) { //ensures array.push can run without undefined
       row = 9;
       //this pushes the value at array position row, column
       array.push(0,board[row][column],board[row-1][column-1],board[row-1][column+1],board[row-1][column],board[row][column+1],board[row][column-1]);
@@ -89,10 +98,10 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Row++: " + row + " " +column);
+        console.log("Next Row: " + row + " " + column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log(row + " Col++: " + column);
+        console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item === 1;
@@ -103,8 +112,7 @@ function checkEmptyCells(row, column, length, direction) {
       // board[row+1][column],
 
 
-    } else if (row <= 0) {
-      console.log("R " + row);
+    } else if (row <= 0) { //ensures array.push can run without undefined
       row = 0;
       array.push(0,board[row][column],board[row+1][column+1],board[row+1][column-1],board[row+1][column],board[row][column+1],board[row][column-1]);
       console.log("Check array row<0:");
@@ -112,10 +120,10 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Row++: " + row + " " + column);
+        console.log("Next Row: " + row + " " + column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log(row + " Col++: " + column);
+        console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item === 1;
@@ -132,17 +140,17 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Row++: " + row + " " + column);
+        console.log("Next Row: " + row + " " + column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log(row + " Col++: " + column);
+        console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item === 1;
         });
       }
     }
-  console.log("Full loop:" + i);
+  console.log("checkEmptyCells Loop: " + i);
 }//end loop
   return array.some(function(item){ //runs a blind function on array
     return item === 1;  //if any items in array are equal to 1 then return true

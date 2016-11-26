@@ -6,13 +6,12 @@ $(document).ready(function() {
   // setThreeBlockShip();
   // setTwoBlockShip();
   // setSingleShips();
-  setXblockShips(5, 1);
-  setXblockShips(4, 2);
-  setXblockShips(3, 2);
-  setXblockShips(2, 2);
-  setXblockShips(1, 1);
-
-  // displayShips(); // take this off to hide ships until click
+  setXBlockShips(5, 1);
+  setXBlockShips(4, 2);
+  setXBlockShips(3, 2);
+  setXBlockShips(2, 2);
+  setXBlockShips(1, 1);
+  displayShips(); // take this off to hide ships until click
 
 
 //alert to be sure everything is linked properly
