@@ -11,7 +11,7 @@ $(document).ready(function() {
   setXBlockShips(3, 2);
   setXBlockShips(2, 2);
   setXBlockShips(1, 1);
-  displayShips(); // take this off to hide ships until click
+  // displayShips(); // take this off to hide ships until click
 
 
 //alert to be sure everything is linked properly
