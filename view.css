@@ -6,11 +6,12 @@
 }*/
 body {
   margin: auto;
-  text-align: center;
+  /*text-align: center;*/
 }
 table {
-  margin: auto;
-  min-width: 500px;
+  margin: 20px auto;
+  text-align: right;
+  /*min-width: 500px;*/
 }
 h1 {
   background-color: #AF0102;
@@ -22,18 +23,22 @@ h1 {
   border: 6px solid #f2f2f2;
 }
 .header {
+  /*max-width: 1050px;*/
+  width: 100%;
   margin: 10px auto 10px auto;
-  width: 600px;
   box-shadow: 5px 5px 5px #2d2d2d;
+  float: none;
 }
 h3 {
   font-family: 'Quantico', sans-serif;
   font-size: 28px;
+  margin: 30px auto 20px auto;
 }
 td {
   height: 49px;
   width: 49px;
   background-color: #4EA4BB;
+  border: 2px solid white;
 }
 .miss {
   background-color: #a9c9c9;
@@ -48,4 +53,27 @@ button {
   color: white;
   text-shadow: 1px 1px 2px #595959;
   border-radius: 6px;
+  text-align: center;
+  /*margin: 5px 10px;*/
+}
+.shipTracker {
+  font-size: 18px;
+  /*max-width: 500px;*/
+  width: 98%;
+  /*padding: 0;
+  margin: 0;*/
+}
+/*.shipTrackerTable {
+}*/
+.shipTrackerTable td {
+  background-color: white;
+  width: 150px;
+  text-align: center;
+  font-family: 'Play', sans-serif;
+  font-size: 18px;
+}
+.shipTrackerTable th {
+  text-align: center;
+  font-family: 'Quantico', sans-serif;
+  font-size: 18px;
 }
