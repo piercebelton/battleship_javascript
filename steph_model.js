@@ -59,7 +59,7 @@ function setXBlockShips(length, shipsNeeded) {
       //If the ship will fit, then set a 1 in each square in the vertical column
       console.log(length + "Ship SET Vertical: " + row + " " + column);
       for (var i = 0; i  < length; i++) {
-        board[row + i][column] = ship;
+        board[row + i][column] = length;
         console.log(length + "Ship Build Vertical: " + (row + i) + " " + column);
       }
       shipCount++;
@@ -74,7 +74,7 @@ function setXBlockShips(length, shipsNeeded) {
       }
       console.log(length + "Ship SET Horizontal: " + row + " " + column);
       for (var i = 0; i  < length; i++) {
-        board[row][column + i] = ship;
+        board[row][column + i] = length;
         console.log(length + "Ship Build Horizontal: " + row + " " + (column + i));
       }
       shipCount++;
@@ -105,7 +105,7 @@ function checkEmptyCells(row, column, length, direction) {
         console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
-          return item === 1;
+          return item > 0;
       });
     }
 
@@ -123,7 +123,7 @@ function checkEmptyCells(row, column, length, direction) {
         console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
-          return item === 1;
+          return item > 0;
       });
     }
 
@@ -140,13 +140,13 @@ function checkEmptyCells(row, column, length, direction) {
         console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
-          return item === 1;
+          return item > 0;
         });
       }
     }
 }//end loop
   return array.some(function(item){ //runs a blind function on array
-    return item === 1;  //if any items in array are equal to 1 then return true
+    return item > 0;  //if any items in array are equal to 1 then return true
   });
 }//end function
 

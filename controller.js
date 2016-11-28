@@ -72,7 +72,7 @@ $(document).ready(function() {
   function displayShips() {
     for (var i = 0; i < board.length; i++) {
       for (var j = 0; j < board[i].length; j++) {
-        if (board[i][j] === 1) {
+        if (board[i][j] > 0) {
           $("#" + i + j).addClass("hit");
         }
       }
