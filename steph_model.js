@@ -3,6 +3,7 @@ var board = []; //back-end array to hold values that are represented in View's t
 var ship = 1; //Sets a ship variable to 1
 var shipsRemaining = 24;
   //This needs to be the total count of squares (1 5block, 2 4block, 2 3block, 2 2block, 1 1block)
+var arrayOfShips = [];
 
 function remainingShips() {
     shipsRemaining--; //Decrements the ships remaining
@@ -36,9 +37,59 @@ function shipDirection(direction) { //Changes 0/1 to vertical or horizontal; nee
   }
 }
 
+function countUnsunkShips() {
+  fiveBlockCount = 0;
+  fourBlockCount = 0;
+  threeBlockCount = 0;
+  twoBlockCount = 0;
+  oneBlockCount = 0;
+
+  for (var i = 0; i < board.length; i++) {
+    for (var j = 0; j < board[i].length; j++) {
+      if (board[i][j] === 5) {
+          fiveBlockCount += 1;
+      } else if (board[i][j] === 4) {
+          fourBlockCount += 1;
+      } else if (board[i][j] === 3) {
+          threeBlockCount += 1;
+      } else if (board[i][j] === 2) {
+          twoBlockCount += 1;
+      } else if (board[i][j] === 1) {
+          oneBlockCount += 1;
+      } else {
+      }
+    }
+  }
+  fiveBlockCount = fiveBlockCount / 5;
+  fourBlockCount = fourBlockCount / 4;
+  threeBlockCount = threeBlockCount / 3;
+  twoBlockCount = twoBlockCount / 2;
+  oneBlockCount = oneBlockCount / 1;
+
+  console.log("----- Total Ship Counts-----")
+  console.log("FiveBlockCount:" + fiveBlockCount);
+  console.log("FourBlockCount:" + fourBlockCount);
+  console.log("ThreeBlockCount:" + threeBlockCount);
+  console.log("TwoBlockCount:" + twoBlockCount);
+  console.log("OneBlockCount:" + oneBlockCount);
+}
+
+// count sunkShips() {
+//   for (var i = 0; i < board.length; i++) {
+//     for (var j = 0; j < board[i].length; j++) {
+//       if (board[i][j] > 0) { //checks if there's a value in the cell
+//         if board[i+1][j] > 0 { //checks the row below, same column
+//           if ($(thing).attr("class") === "hit")
+//         }
+//       }
+//     }
+//   }
+// }
+
 function setXBlockShips(length, shipsNeeded) {
   var shipCount = 0;
   console.log("Setting: " + shipsNeeded + " Ship Length: " + length);
+  var blockShipArray = [];
 
   while (shipCount < shipsNeeded) { //while loop runs while shipcount is less than needed
     console.log("------- BEGIN SET " + length + "SHIP -------");
@@ -48,40 +99,50 @@ function setXBlockShips(length, shipsNeeded) {
     var direction = Math.floor(Math.random()*2); //random direction vertical(0) or horizontal(1)
 
     console.log(length + "Ship Direction: " + shipDirection(direction));
-    console.log(length + "Ship START: " + row + " " + column);
+    // console.log(length + "Ship START: " + row + " " + column);
 
     if (direction === 0) { //vertical ship
+      shipArray = [];
       while ((row + (length - 1) > 9) || (checkEmptyCells(row, column, length, direction) === true)) { //while row start plus the length of the ship is greater than 9 the ship will be built off the board, generate new row column instead
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
-        console.log(length + "Ship Loop Vertical: " + row + " " + column);
+        // console.log(length + "Ship Loop Vertical: " + row + " " + column);
       }
       //If the ship will fit, then set a 1 in each square in the vertical column
-      console.log(length + "Ship SET Vertical: " + row + " " + column);
+      // console.log(length + "Ship SET Vertical: " + row + " " + column);
       for (var i = 0; i  < length; i++) {
         board[row + i][column] = length;
+        shipArray = [(row + i) + "" + column];
+        blockShipArray.push(shipArray);
         console.log(length + "Ship Build Vertical: " + (row + i) + " " + column);
+        console.log(shipArray);
       }
       shipCount++;
       console.log(length + "Ship count: " + shipCount);
       console.log("-------- END SET " + length + "SHIP --------");
       console.log(" ");
     } else { //horizontal ship
+      shipArray = [];
       while ((column + (length - 1) > 9) || (checkEmptyCells(row,column,length,direction) === true)) { //if the 5 block ship goes off the board then generate a new random number
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
-        console.log(length + "Ship Loop Horizontal: " + row + " " + column);
+        // console.log(length + "Ship Loop Horizontal: " + row + " " + column);
       }
-      console.log(length + "Ship SET Horizontal: " + row + " " + column);
+      // console.log(length + "Ship SET Horizontal: " + row + " " + column);
       for (var i = 0; i  < length; i++) {
         board[row][column + i] = length;
+        shipArray = [row + "" + (column + i)];
+        blockShipArray.push(shipArray);
         console.log(length + "Ship Build Horizontal: " + row + " " + (column + i));
+        console.log(shipArray);
       }
       shipCount++;
       console.log(length + "Ship count: " + shipCount);
       console.log("-------- END SET " + length + "SHIP --------");
       console.log(" ");
     } //Ends else
+    arrayOfShips.push(blockShipArray);
+    console.log(arrayOfShips);
   } //Ends while loop
 }//Ends Set xblock
 
@@ -89,7 +150,7 @@ function checkEmptyCells(row, column, length, direction) {
   array = [];
 
   for (var i = 0; i < length; i++) {//this will move the checker along the ships length
-    console.log("checkEmptyCells Loop: " + i);
+    // console.log("checkEmptyCells Loop: " + i);
     if (row >= 9) { //ensures array.push can run without undefined
       row = 9;
       //this pushes the value at array position row, column
@@ -99,10 +160,10 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Next Row: " + row + " " + column);
+        // console.log("Next Row: " + row + " " + column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log("Next Column: " + row + " " + column);
+        // console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item > 0;
@@ -117,10 +178,10 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Next Row: " + row + " " + column);
+        // console.log("Next Row: " + row + " " + column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log("Next Column: " + row + " " + column);
+        // console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item > 0;
@@ -134,10 +195,10 @@ function checkEmptyCells(row, column, length, direction) {
 
       if (direction === 0 && length > 1){ //if its vertical then add to the row each loop
         row += 1;
-        console.log("Next Row: " + row + " " + column);
+        // console.log("Next Row: " + row + " " + column);
       } else if (direction === 1 && length > 1){ //if horizontal then add to the column each loop
         column += 1;
-        console.log("Next Column: " + row + " " + column);
+        // console.log("Next Column: " + row + " " + column);
       } else {
         return array.some(function(item){ //runs a blind function on array
           return item > 0;
@@ -149,6 +210,17 @@ function checkEmptyCells(row, column, length, direction) {
     return item > 0;  //if any items in array are equal to 1 then return true
   });
 }//end function
+
+function checkShipSunk(row, column) {
+  var length = board[row][column]; //this retreives the value within that position
+  for (var i = 0; i < length; i++) {
+    if (row >= 9) { //if the click happens in row 9, don't check any row+1
+      if ((board[row-1][column] === length) || (board[row][column+1] === length) || (board[row][column-1] === length)) {
+
+      }
+    }
+  }
+}
 
         ///ALL CHECKS CAN CHECK NO MATTER WHAT UNTIL YOU PLACE A SHIP
         // board[row][column] // same cell

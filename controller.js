@@ -11,6 +11,8 @@ $(document).ready(function() {
   setXBlockShips(3, 2);
   setXBlockShips(2, 2);
   setXBlockShips(1, 1);
+  showShipCount();
+  // showShipCount();
   displayShips(); // take this off to hide ships until click
 
 
@@ -18,7 +20,9 @@ $(document).ready(function() {
 //call for loops from the model to create the table!
   $("td").on("click", function() {
     checkClick(this);
+    sinkShips();
     showTorpedoes();
+    sunkShips(this);
     if (shipsRemaining === 0) { //Need to figure out how this count works
       $("td").off("click");
       $("#torpedoCount").text("Mission accomplished! You WIN! ");
@@ -61,7 +65,9 @@ $(document).ready(function() {
 
   function checkClick(thing) {
     var position = $(thing).attr("id").split(""); //this takes the id attribute and splits it into 2 numbers (the row and column)
-    if (board[position[0]][position[1]] === 0) { //this finds the value at the board/array position of the two numbers
+    row = position[0];
+    column = position[1];
+    if (board[row][column] === 0) { //this finds the value at the board/array position of the two numbers
       $(thing).addClass("miss"); //class miss is added if there is no ship (value = 0)
     } else {
       $(thing).addClass("hit"); //class hit is added if there is a ship (value = 1)
@@ -78,6 +84,46 @@ $(document).ready(function() {
       }
     }
   }
+
+  function showShipCount() {
+    countUnsunkShips();
+    $("#fiveblock").text(fiveBlockCount);
+    $("#fourblock").text(fourBlockCount);
+    $("#threeblock").text(threeBlockCount);
+    $("#twoblock").text(twoBlockCount);
+    $("#oneblock").text(oneBlockCount);
+  }
+
+
+// Can use this function to then run a function in the model that checks the array
+function showSunkShips(thing) {
+  var position = $(thing).attr("id").split(""); //this takes the id attribute and splits it into 2 numbers (the row and column)
+  row = position[0];
+  column = position[1];
+  var valueOfCell = 0;
+  var arrayCheckHits = [];
+
+  //this finds the value at the board/array position of the two numbers
+  valueOfCell = board[position[0]][position[1]];
+
+  if (board[row+1][column] === valueOfCell) { //if the cell below has the same value (i.e. same ship)
+    for (var i = 0; i < valueOfCell; i++) { //loop through each adjacent cell and check if they are hit
+      arrayCheckHits.push(($("#" + (row + i) + "" + column).attr("class")));
+    }
+  }
+  console.log("ArrayCheckHits: " + arrayCheckHits);
+}
+
+// set the value as a variable so you can check the full lenght of the boat
+// then run a loop on vertical or horizontal based on where it fines another same value
+
+
+
+//
+// //count the cells that contain a value of length that do not have hit
+//
+//         //hits are assigned a class hit
+//         //identify ships by getting value then check # of hits
 
 
 
