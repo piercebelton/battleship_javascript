@@ -142,8 +142,8 @@ function setXBlockShips(length, shipsNeeded) {
       console.log(" ");
     } //Ends else
     arrayOfShips.push(blockShipArray);
-    console.log(arrayOfShips);
   } //Ends while loop
+  console.log(arrayOfShips);
 }//Ends Set xblock
 
 function checkEmptyCells(row, column, length, direction) {

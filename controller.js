@@ -20,9 +20,7 @@ $(document).ready(function() {
 //call for loops from the model to create the table!
   $("td").on("click", function() {
     checkClick(this);
-    sinkShips();
     showTorpedoes();
-    sunkShips(this);
     if (shipsRemaining === 0) { //Need to figure out how this count works
       $("td").off("click");
       $("#torpedoCount").text("Mission accomplished! You WIN! ");
