@@ -1,16 +1,10 @@
-/*set table and td sizes here*/
-/*table {
-  height: 500px;
-  width: 500px;
-  border: 1px solid black;
-}*/
 body {
   margin: auto;
   background-image: url("battleship.jpg");
   /*text-align: center;*/
 }
 table {
-  margin: 20px auto;
+  margin: 15px auto;
   text-align: center;
   box-shadow: 5px 5px 5px #2d2d2d;
   /*min-width: 500px;*/
@@ -21,23 +15,24 @@ h1 {
   text-shadow: 2px 2px 4px black;
   font-size: 70px;
   text-align: center;
-  padding: 0px;
+  letter-spacing: 4px;
 }
 h3 {
   font-family: 'Quantico', sans-serif;
   font-size: 28px;
-  margin: 30px auto 20px auto;
+  margin: 20px auto 20px auto;
   text-shadow: 2px 2px 4px white;
   color: #2B3034;
 }
 
 .header {
   width: 100%;
-  margin: 20px auto 10px auto;
+  margin: 20px auto 20px auto;
   box-shadow: 5px 5px 5px #2d2d2d;
   float: none;
   background-color: #B32033;
   border: 6px solid #f2f2f2;
+  padding: 0px;
 }
 .board {
   border: 2px solid #566b77;
@@ -66,13 +61,10 @@ button {
 }
 .shipTracker {
   font-size: 18px;
-  /*max-width: 500px;*/
-  width: 98%;
-  padding: 0;
+  padding: 0px;
 }
 .shipTrackerTable {
-  margin: -10px auto 0 auto;
-  padding: -4px;
+  margin: -10px auto 50px auto;
   border-collapse: separate;;
   border-spacing: 0;
   border: 3px solid rgba(45, 71, 86, .85);
@@ -85,7 +77,7 @@ button {
   /*border-color: rgba(0, 0, 0, 0);
   border-radius: 9px;*/
   width: 140px;
-  height: 50px;
+  height: 48px;
   text-align: center;
   font-family: 'Play', sans-serif;
   font-size: 18px;
