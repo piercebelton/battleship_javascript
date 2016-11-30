@@ -6,23 +6,30 @@
 }*/
 body {
   margin: auto;
-  background-image: url("https://i.ytimg.com/vi/2bn1OabDqgM/maxresdefault.jpg");
+  background-image: url("battleship.jpg");
   /*text-align: center;*/
 }
 table {
   margin: 20px auto;
-  text-align: right;
+  text-align: center;
   /*min-width: 500px;*/
 }
 h1 {
-  background-color: #AF0102;
+  background-color: #B32033;
   font-family: 'Black Ops One', cursive;
   color: white;
   text-shadow: 2px 2px 4px black;
-  font-size: 50px;
+  font-size: 70px;
   text-align: center;
   border: 6px solid #f2f2f2;
 }
+h3 {
+  font-family: 'Quantico', sans-serif;
+  font-size: 28px;
+  margin: 30px auto 20px auto;
+  color: #2B3034;
+}
+
 .header {
   /*max-width: 1050px;*/
   width: 100%;
@@ -30,22 +37,19 @@ h1 {
   box-shadow: 5px 5px 5px #2d2d2d;
   float: none;
 }
-h3 {
-  font-family: 'Quantico', sans-serif;
-  font-size: 28px;
-  margin: 30px auto 20px auto;
+.board {
+  border: 2px solid #566b77;
+  background-color: #2D4756;
 }
-td {
+.board td {
   height: 49px;
   width: 49px;
-  background-color: #96ACB9;
-  border: 2px solid white;
 }
 .miss {
-  background-color: #a9c9c9;
+  background-color: #738792;
 }
 .hit {
-  background-color: #AF0102;
+  background-color: #B32033;
 }
 button {
   background: black;
@@ -65,19 +69,28 @@ button {
 }
 .shipTrackerTable {
   margin: -10px auto 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 2px solid rgba(45, 71, 86, .65);
+  border-radius: 9px;
 }
 .shipTrackerTable td {
-  background-color: #597E91;
+  background-color: rgba(45, 71, 86, .5);
+  border-color: rgba(0, 0, 0, 0);
   width: 150px;
+  height: 50px;
   text-align: center;
   font-family: 'Play', sans-serif;
   font-size: 18px;
   color: white;
 }
 .shipTrackerTable th {
+  height: 50px;
+  background-color: rgba(45, 71, 86, .65);
   text-align: center;
   font-family: 'Quantico', sans-serif;
   font-size: 18px;
+  color: #2B3034;
 }
 .boomImage {
   width: 50px;

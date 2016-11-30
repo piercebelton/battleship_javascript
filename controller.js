@@ -12,8 +12,7 @@ $(document).ready(function() {
   setXBlockShips(2, 2);
   setXBlockShips(1, 1);
   showShipCount();
-  // showShipCount();
-  // displayShips(); // take this off to hide ships until click
+  displayShips(); // take this off to hide ships until click
 
 
 //alert to be sure everything is linked properly
@@ -45,9 +44,9 @@ $(document).ready(function() {
    //build a for loop within a for loop to create a 10x10 table. The first for loop creates the rows, the second creates the columns (aka the tds)
   function createBoard() {
   for (var i = 0; i < 10; i++) {
-    $("#table").append("<tr id=" + i +">");
+    $("#table").append("<tr class='board' id=" + i +">");
     for (var j = 0; j < 10; j++) {
-      $("#"+i).append("<td id=" + i + j + "></td>");
+      $("#"+i).append("<td class='board' id=" + i + j + "></td>");
     }
     $("#table").append("</tr>");
     }
@@ -88,31 +87,31 @@ $(document).ready(function() {
     countUnsunkShips();
     if (fiveBlockCount === 0) {
       $("#fiveblock").text("");
-      $("#fiveblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+      $("#fiveblock").prepend("<img class='boomImage' src='explosion.png'/>")
     } else {
       $("#fiveblock").text(fiveBlockCount);
     }
     if (fourBlockCount === 0) {
       $("#fourblock").text("");
-      $("#fourblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+      $("#fourblock").prepend("<img class='boomImage' src='explosion.png'/>")
     } else {
       $("#fourblock").text(fourBlockCount);
     }
     if (threeBlockCount === 0) {
       $("#threeblock").text("");
-      $("#threeblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+      $("#threeblock").prepend("<img class='boomImage' src='explosion.png'/>")
     } else {
       $("#threeblock").text(threeBlockCount);
     }
     if (twoBlockCount === 0) {
       $("#twoblock").text("");
-      $("#twoblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+      $("#twoblock").prepend("<img class='boomImage' src='explosion.png'/>")
     } else {
       $("#twoblock").text(twoBlockCount);
     }
     if (oneBlockCount === 0) {
       $("#oneblock").text("");
-      $("#oneblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+      $("#oneblock").prepend("<img class='boomImage' src='explosion.png'/>")
     } else {
       $("#oneblock").text(oneBlockCount);
     }
