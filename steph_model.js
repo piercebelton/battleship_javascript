@@ -15,10 +15,10 @@ function countTorpedoes() {
 
 function newGame() {
   board = [];
+  arrayOfShips = [];
+  torpedoes = 25;
   buildTable();
   console.clear();
-  shipsRemaining = 24;
-  torpedoes = 25;
 }
 
 function shipDirection(direction) { //Changes 0/1 to "vertical" or "horizontal"; for readability of console.log

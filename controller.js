@@ -7,7 +7,7 @@ $(document).ready(function() {
   setXBlockShips(2, 2);
   setXBlockShips(1, 1);
   showShipCount();
-  displayShips(); // take this off to hide ships until click
+  // displayShips(); // take this off to hide ships until click
 
 
   $("td").on("click", function() {
@@ -27,10 +27,36 @@ $(document).ready(function() {
   });
 
   $("#start").on("click", function() {
-    location.reload();
-    // newGame();
-    // $("td").removeClass("hit");
-    // $("td").removeClass("miss");
+    $("td").off();
+    newGame();
+    $("td").removeClass("hit");
+    $("td").removeClass("miss");
+    setXBlockShips(5, 1);
+    setXBlockShips(4, 2);
+    setXBlockShips(3, 2);
+    setXBlockShips(2, 2);
+    setXBlockShips(1, 1);
+    // displayShips();
+    $("#fiveblock").text(0);
+    $("#fourblock").text(0);
+    $("#threeblock").text(0);
+    $("#twoblock").text(0);
+    $("#oneblock").text(0);
+    $("td").on("click", function() {
+      clickHitMiss(this); //checks if the cell is a hit or miss
+      showTorpedoes(); //shows number of torpedoes left
+      showSunkShips(this); //shows number of ships remaining
+      if ((((fiveBlockCount === 0 && fourBlockCount === 0) && threeBlockCount === 0) && twoBlockCount === 0) && oneBlockCount === 0) { //if all ships counts are zero
+        $("td").off("click"); //turn off clicking
+        $("#torpedoCount").text("Mission accomplished! You WIN! "); //set message
+      }
+      $(this).off();
+      if (torpedoes === 0) { //if torpedo count is zero
+        $("td").off("click"); //turn off clicking
+        $("#torpedoCount").text("Game over. You LOSE!"); //set message
+        displayShips(this); //then display all ships
+      }
+    });
   });
 
 
