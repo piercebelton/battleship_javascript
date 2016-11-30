@@ -12,38 +12,40 @@ body {
 table {
   margin: 20px auto;
   text-align: center;
+  box-shadow: 5px 5px 5px #2d2d2d;
   /*min-width: 500px;*/
 }
 h1 {
-  background-color: #B32033;
   font-family: 'Black Ops One', cursive;
   color: white;
   text-shadow: 2px 2px 4px black;
   font-size: 70px;
   text-align: center;
-  border: 6px solid #f2f2f2;
+  padding: 0px;
 }
 h3 {
   font-family: 'Quantico', sans-serif;
   font-size: 28px;
   margin: 30px auto 20px auto;
+  text-shadow: 2px 2px 4px white;
   color: #2B3034;
 }
 
 .header {
-  /*max-width: 1050px;*/
   width: 100%;
-  margin: 10px auto 10px auto;
+  margin: 20px auto 10px auto;
   box-shadow: 5px 5px 5px #2d2d2d;
   float: none;
+  background-color: #B32033;
+  border: 6px solid #f2f2f2;
 }
 .board {
   border: 2px solid #566b77;
-  background-color: #2D4756;
+  background-color: rgba(45, 71, 86, .85);
 }
 .board td {
-  height: 49px;
-  width: 49px;
+  height: 50px;
+  width: 50px;
 }
 .miss {
   background-color: #738792;
@@ -52,14 +54,15 @@ h3 {
   background-color: #B32033;
 }
 button {
-  background: black;
+  background: #101E2B;
+  border-radius: 6px;
+  border-color: #273440;
   font-family: 'Black Ops One', cursive;
   font-size: 20px;
   color: white;
-  text-shadow: 1px 1px 2px #595959;
-  border-radius: 6px;
+  /*text-shadow: 1px 1px 2px #595959;*/
   text-align: center;
-  /*margin: 5px 10px;*/
+  margin: 0 0 20px 0;
 }
 .shipTracker {
   font-size: 18px;
@@ -69,15 +72,19 @@ button {
 }
 .shipTrackerTable {
   margin: -10px auto 0 auto;
-  border-collapse: collapse;
+  padding: -4px;
+  border-collapse: separate;;
   border-spacing: 0;
-  border: 2px solid rgba(45, 71, 86, .65);
+  border: 3px solid rgba(45, 71, 86, .85);
   border-radius: 9px;
+  box-shadow: 5px 5px 5px #2d2d2d;
 }
 .shipTrackerTable td {
-  background-color: rgba(45, 71, 86, .5);
-  border-color: rgba(0, 0, 0, 0);
-  width: 150px;
+  background-color: rgba(45, 71, 86, .85);
+  /*border-bottom: 2px solid rgba(45, 71, 86, .65);*/
+  /*border-color: rgba(0, 0, 0, 0);
+  border-radius: 9px;*/
+  width: 140px;
   height: 50px;
   text-align: center;
   font-family: 'Play', sans-serif;
@@ -86,7 +93,9 @@ button {
 }
 .shipTrackerTable th {
   height: 50px;
-  background-color: rgba(45, 71, 86, .65);
+  background-color: rgba(136,151,159, .75);
+  border-bottom: 2px solid rgba(45, 71, 86, .65);
+  /*border-radius: 9px;*/
   text-align: center;
   font-family: 'Quantico', sans-serif;
   font-size: 18px;
