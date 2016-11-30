@@ -6,6 +6,7 @@
 }*/
 body {
   margin: auto;
+  background-image: url("https://i.ytimg.com/vi/2bn1OabDqgM/maxresdefault.jpg");
   /*text-align: center;*/
 }
 table {
@@ -37,7 +38,7 @@ h3 {
 td {
   height: 49px;
   width: 49px;
-  background-color: #4EA4BB;
+  background-color: #96ACB9;
   border: 2px solid white;
 }
 .miss {
@@ -60,20 +61,24 @@ button {
   font-size: 18px;
   /*max-width: 500px;*/
   width: 98%;
-  /*padding: 0;
-  margin: 0;*/
+  padding: 0;
 }
-/*.shipTrackerTable {
-}*/
+.shipTrackerTable {
+  margin: -10px auto 0 auto;
+}
 .shipTrackerTable td {
-  background-color: white;
+  background-color: #597E91;
   width: 150px;
   text-align: center;
   font-family: 'Play', sans-serif;
   font-size: 18px;
+  color: white;
 }
 .shipTrackerTable th {
   text-align: center;
   font-family: 'Quantico', sans-serif;
   font-size: 18px;
+}
+.boomImage {
+  width: 50px;
 }

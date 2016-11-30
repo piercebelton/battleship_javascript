@@ -13,7 +13,7 @@ $(document).ready(function() {
   setXBlockShips(1, 1);
   showShipCount();
   // showShipCount();
-  displayShips(); // take this off to hide ships until click
+  // displayShips(); // take this off to hide ships until click
 
 
 //alert to be sure everything is linked properly
@@ -86,11 +86,36 @@ $(document).ready(function() {
 
   function showShipCount() {
     countUnsunkShips();
-    $("#fiveblock").text(fiveBlockCount);
-    $("#fourblock").text(fourBlockCount);
-    $("#threeblock").text(threeBlockCount);
-    $("#twoblock").text(twoBlockCount);
-    $("#oneblock").text(oneBlockCount);
+    if (fiveBlockCount === 0) {
+      $("#fiveblock").text("");
+      $("#fiveblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+    } else {
+      $("#fiveblock").text(fiveBlockCount);
+    }
+    if (fourBlockCount === 0) {
+      $("#fourblock").text("");
+      $("#fourblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+    } else {
+      $("#fourblock").text(fourBlockCount);
+    }
+    if (threeBlockCount === 0) {
+      $("#threeblock").text("");
+      $("#threeblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+    } else {
+      $("#threeblock").text(threeBlockCount);
+    }
+    if (twoBlockCount === 0) {
+      $("#twoblock").text("");
+      $("#twoblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+    } else {
+      $("#twoblock").text(twoBlockCount);
+    }
+    if (oneBlockCount === 0) {
+      $("#oneblock").text("");
+      $("#oneblock").prepend("<img class='boomImage' src='http://clipartix.com/wp-content/uploads/2016/06/Art-explosion-clip-art-clipart-image.png'/>")
+    } else {
+      $("#oneblock").text(oneBlockCount);
+    }
   }
 
 
