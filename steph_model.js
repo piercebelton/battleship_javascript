@@ -4,6 +4,7 @@ var ship = 1; //Sets a ship variable to 1
 var shipsRemaining = 24;
   //This needs to be the total count of squares (1 5block, 2 4block, 2 3block, 2 2block, 1 1block)
 var arrayOfShips = [];
+var copyArrayOfShips = arrayOfShips.concat();
 
 function remainingShips() {
     shipsRemaining--; //Decrements the ships remaining
@@ -37,43 +38,6 @@ function shipDirection(direction) { //Changes 0/1 to vertical or horizontal; nee
   }
 }
 
-function countUnsunkShips() {
-  fiveBlockCount = 0;
-  fourBlockCount = 0;
-  threeBlockCount = 0;
-  twoBlockCount = 0;
-  oneBlockCount = 0;
-
-  for (var i = 0; i < board.length; i++) {
-    for (var j = 0; j < board[i].length; j++) {
-      if (board[i][j] === 5) {
-          fiveBlockCount += 1;
-      } else if (board[i][j] === 4) {
-          fourBlockCount += 1;
-      } else if (board[i][j] === 3) {
-          threeBlockCount += 1;
-      } else if (board[i][j] === 2) {
-          twoBlockCount += 1;
-      } else if (board[i][j] === 1) {
-          oneBlockCount += 1;
-      } else {
-      }
-    }
-  }
-  fiveBlockCount = fiveBlockCount / 5;
-  fourBlockCount = fourBlockCount / 4;
-  threeBlockCount = threeBlockCount / 3;
-  twoBlockCount = twoBlockCount / 2;
-  oneBlockCount = oneBlockCount / 1;
-
-  console.log("----- Total Ship Counts-----")
-  console.log("FiveBlockCount:" + fiveBlockCount);
-  console.log("FourBlockCount:" + fourBlockCount);
-  console.log("ThreeBlockCount:" + threeBlockCount);
-  console.log("TwoBlockCount:" + twoBlockCount);
-  console.log("OneBlockCount:" + oneBlockCount);
-}
-
 // count sunkShips() {
 //   for (var i = 0; i < board.length; i++) {
 //     for (var j = 0; j < board[i].length; j++) {
@@ -89,10 +53,12 @@ function countUnsunkShips() {
 function setXBlockShips(length, shipsNeeded) {
   var shipCount = 0;
   console.log("Setting: " + shipsNeeded + " Ship Length: " + length);
-  var blockShipArray = [];
+
 
   while (shipCount < shipsNeeded) { //while loop runs while shipcount is less than needed
     console.log("------- BEGIN SET " + length + "SHIP -------");
+
+    var blockShipArray = [];
 
     var row = Math.floor(Math.random()*10); //random row generated 0-9
     var column = Math.floor(Math.random()*10); //random column generated 0-9
@@ -102,7 +68,6 @@ function setXBlockShips(length, shipsNeeded) {
     // console.log(length + "Ship START: " + row + " " + column);
 
     if (direction === 0) { //vertical ship
-      shipArray = [];
       while ((row + (length - 1) > 9) || (checkEmptyCells(row, column, length, direction) === true)) { //while row start plus the length of the ship is greater than 9 the ship will be built off the board, generate new row column instead
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
@@ -112,17 +77,15 @@ function setXBlockShips(length, shipsNeeded) {
       // console.log(length + "Ship SET Vertical: " + row + " " + column);
       for (var i = 0; i  < length; i++) {
         board[row + i][column] = length;
-        shipArray = [(row + i) + "" + column];
-        blockShipArray.push(shipArray);
+        blockShipArray.push((row + i) + "" + column);
         console.log(length + "Ship Build Vertical: " + (row + i) + " " + column);
-        console.log(shipArray);
+        // console.log(JSON.stringify(blockShipArray));
       }
       shipCount++;
       console.log(length + "Ship count: " + shipCount);
       console.log("-------- END SET " + length + "SHIP --------");
       console.log(" ");
     } else { //horizontal ship
-      shipArray = [];
       while ((column + (length - 1) > 9) || (checkEmptyCells(row,column,length,direction) === true)) { //if the 5 block ship goes off the board then generate a new random number
         row = Math.floor(Math.random()*10);
         column = Math.floor(Math.random()*10);
@@ -131,10 +94,9 @@ function setXBlockShips(length, shipsNeeded) {
       // console.log(length + "Ship SET Horizontal: " + row + " " + column);
       for (var i = 0; i  < length; i++) {
         board[row][column + i] = length;
-        shipArray = [row + "" + (column + i)];
-        blockShipArray.push(shipArray);
+        blockShipArray.push((row + "" + (column + i)));
         console.log(length + "Ship Build Horizontal: " + row + " " + (column + i));
-        console.log(shipArray);
+        // console.log(JSON.stringify(blockShipArray));
       }
       shipCount++;
       console.log(length + "Ship count: " + shipCount);
@@ -143,7 +105,7 @@ function setXBlockShips(length, shipsNeeded) {
     } //Ends else
     arrayOfShips.push(blockShipArray);
   } //Ends while loop
-  console.log(arrayOfShips);
+  console.log(JSON.stringify(arrayOfShips));
 }//Ends Set xblock
 
 function checkEmptyCells(row, column, length, direction) {
@@ -211,12 +173,49 @@ function checkEmptyCells(row, column, length, direction) {
   });
 }//end function
 
-function checkShipSunk(row, column) {
-  var length = board[row][column]; //this retreives the value within that position
-  for (var i = 0; i < length; i++) {
-    if (row >= 9) { //if the click happens in row 9, don't check any row+1
-      if ((board[row-1][column] === length) || (board[row][column+1] === length) || (board[row][column-1] === length)) {
+function countUnsunkShips() {
+  fiveBlockCount = 0; // sets initial count of ships to 0
+  fourBlockCount = 0;
+  threeBlockCount = 0;
+  twoBlockCount = 0;
+  oneBlockCount = 0;
 
+  for (var i = 0; i < arrayOfShips.length; i++) {
+    //loops through our array of ships
+    if (arrayOfShips[i].length === 5 && (!(areAllXs(arrayOfShips[i])))) {
+        fiveBlockCount += 1; //if lenght is 5 and NOT all items in the array are X, add 1 ship to the ship count
+    } else if (arrayOfShips[i].length === 4 && (!(areAllXs(arrayOfShips[i])))) {
+        fourBlockCount += 1;
+    } else if (arrayOfShips[i].length === 3 && (!(areAllXs(arrayOfShips[i])))) {
+        threeBlockCount += 1;
+    } else if (arrayOfShips[i].length === 2 && (!(areAllXs(arrayOfShips[i])))) {
+        twoBlockCount += 1;
+    } else if (arrayOfShips[i].length === 1 && (!(areAllXs(arrayOfShips[i])))) {
+        oneBlockCount += 1;
+    } else {
+    }
+  }
+  // console.log("----- Total Ship Counts-----")
+  // console.log("FiveBlockCount:" + fiveBlockCount);
+  // console.log("FourBlockCount:" + fourBlockCount);
+  // console.log("ThreeBlockCount:" + threeBlockCount);
+  // console.log("TwoBlockCount:" + twoBlockCount);
+  // console.log("OneBlockCount:" + oneBlockCount);
+}
+
+function areAllXs(array) {
+  return array.every(function(item){
+    return item === "X"; //checks if every item in an array (passed through above) is an X, if so the ship is sunk
+  });
+}
+
+function checkSunkShip(position) {
+  console.log("Position from Model:" + position);
+  for (var i = 0; i < arrayOfShips.length; i++) { //searches the array of ships outter array
+    console.log(JSON.stringify(arrayOfShips));
+    for (var j = 0; j < arrayOfShips[i].length; j++) { //searches each ship array for the position
+      if (arrayOfShips[i][j] === position) { //if the position is in the array
+        arrayOfShips[i][j] = "X"; //sets array value to X
       }
     }
   }

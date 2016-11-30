@@ -21,6 +21,7 @@ $(document).ready(function() {
   $("td").on("click", function() {
     checkClick(this);
     showTorpedoes();
+    showSunkShips(this);
     if (shipsRemaining === 0) { //Need to figure out how this count works
       $("td").off("click");
       $("#torpedoCount").text("Mission accomplished! You WIN! ");
@@ -95,21 +96,10 @@ $(document).ready(function() {
 
 // Can use this function to then run a function in the model that checks the array
 function showSunkShips(thing) {
-  var position = $(thing).attr("id").split(""); //this takes the id attribute and splits it into 2 numbers (the row and column)
-  row = position[0];
-  column = position[1];
-  var valueOfCell = 0;
-  var arrayCheckHits = [];
-
-  //this finds the value at the board/array position of the two numbers
-  valueOfCell = board[position[0]][position[1]];
-
-  if (board[row+1][column] === valueOfCell) { //if the cell below has the same value (i.e. same ship)
-    for (var i = 0; i < valueOfCell; i++) { //loop through each adjacent cell and check if they are hit
-      arrayCheckHits.push(($("#" + (row + i) + "" + column).attr("class")));
-    }
-  }
-  console.log("ArrayCheckHits: " + arrayCheckHits);
+  var position = $(thing).attr("id").toString(); //this takes the id attribute and splits it into 2 numbers (the row and column)
+  console.log(position);
+  checkSunkShip(position);
+  showShipCount();
 }
 
 // set the value as a variable so you can check the full lenght of the boat
