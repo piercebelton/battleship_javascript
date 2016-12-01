@@ -7,7 +7,7 @@ $(document).ready(function() {
   setXBlockShips(2, 2);
   setXBlockShips(1, 1);
   showShipCount();
-  // displayShips(); // take this off to hide ships until click
+  displayShips(); // take this off to hide ships until click
 
 
   $("td").on("click", function() {
@@ -106,31 +106,31 @@ $(document).ready(function() {
     countUnsunkShips();
     if (fiveBlockCount === 0) { //if the count of fiveblock ships is zero
       $("#fiveblock").text(""); //set text to nothing
-      $("#fiveblock").prepend("<img class='boomImage' src='explosion.png'/>") //append explosion img
+      $("#fiveblock").prepend('<img class="boomImage" src="images/explosion.png"/>') //append explosion img
     } else {
       $("#fiveblock").text(fiveBlockCount); //otherwise, set the count
     }
     if (fourBlockCount === 0) {
       $("#fourblock").text("");
-      $("#fourblock").prepend("<img class='boomImage' src='explosion.png'/>")
+      $("#fourblock").prepend('<img class="boomImage" src="images/explosion.png"/>')
     } else {
       $("#fourblock").text(fourBlockCount);
     }
     if (threeBlockCount === 0) {
       $("#threeblock").text("");
-      $("#threeblock").prepend("<img class='boomImage' src='explosion.png'/>")
+      $("#threeblock").prepend('<img class="boomImage" src="images/explosion.png"/>')
     } else {
       $("#threeblock").text(threeBlockCount);
     }
     if (twoBlockCount === 0) {
       $("#twoblock").text("");
-      $("#twoblock").prepend("<img class='boomImage' src='explosion.png'/>")
+      $("#twoblock").prepend('<img class="boomImage" src="images/explosion.png"/>')
     } else {
       $("#twoblock").text(twoBlockCount);
     }
     if (oneBlockCount === 0) {
       $("#oneblock").text("");
-      $("#oneblock").prepend("<img class='boomImage' src='explosion.png'/>")
+      $("#oneblock").prepend('<img class="boomImage" src="images/explosion.png"/>')
     } else {
       $("#oneblock").text(oneBlockCount);
     }
