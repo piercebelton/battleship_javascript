@@ -128,3 +128,11 @@ h3{
   margin-top: -20px;
   }
 }
+#footer {
+  text-align: right;
+  font-family: 'Play', sans-serif;
+  font-size: 16px;
+  color: rgba(136,151,159, .75);
+  margin-right: 50px;
+  margin-top: -30px;
+}
