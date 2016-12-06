@@ -7,7 +7,7 @@ $(document).ready(function() {
   setXBlockShips(2, 2);
   setXBlockShips(1, 1);
   showShipCount();
-  displayShips(); // take this off to hide ships until click
+  // displayShips(); // take this off to hide ships until click
 
 
   $("td").on("click", function() {
@@ -37,11 +37,12 @@ $(document).ready(function() {
     setXBlockShips(2, 2);
     setXBlockShips(1, 1);
     // displayShips();
-    $("#fiveblock").text(0);
-    $("#fourblock").text(0);
-    $("#threeblock").text(0);
-    $("#twoblock").text(0);
-    $("#oneblock").text(0);
+    countUnsunkShips();
+    $("#fiveblock").text(fiveBlockCount);
+    $("#fourblock").text(fourBlockCount);
+    $("#threeblock").text(threeBlockCount);
+    $("#twoblock").text(twoBlockCount);
+    $("#oneblock").text(oneBlockCount);
     $("td").on("click", function() {
       clickHitMiss(this); //checks if the cell is a hit or miss
       showTorpedoes(); //shows number of torpedoes left
