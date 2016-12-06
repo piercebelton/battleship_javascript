@@ -1,7 +1,7 @@
 
 var board = []; //back-end array to hold values that are represented in View's table
 var arrayOfShips = []; //sets up empty array to track all ships created
-var torpedoes = 30; //the # of torpedoes that the user has
+var torpedoes = 45; //the # of torpedoes that the user has
 
 function buildTable() { //builds back-end array to hold ship values represented by the gameboard
   for (var i = 0; i < 10; i++) { //loops 10 times
@@ -16,7 +16,7 @@ function countTorpedoes() {
 function newGame() {
   board = [];
   arrayOfShips = [];
-  torpedoes = 30;
+  torpedoes = 45;
   buildTable();
   console.clear();
 }
