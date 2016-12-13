@@ -7,7 +7,7 @@ $(document).ready(function() {
   setXBlockShips(2, 2);
   setXBlockShips(1, 1);
   showShipCount();
-  // displayShips(); // take this off to hide ships until click
+  displayShips(); // take this off to hide ships until click
 
 
   $("td").on("click", function() {
@@ -19,7 +19,7 @@ $(document).ready(function() {
       $("#torpedoCount").text("Mission accomplished! You WIN! "); //set message
     }
     $(this).off();
-    if (torpedoes === 0) { //if torpedo count is zero
+    if (torpedoes === 0 && (fiveBlockCount > 0 || fourBlockCount > 0 || threeBlockCount > 0 || twoBlockCount > 0 || oneBlockCount > 0)) { //if torpedo count is zero
       $("td").off("click"); //turn off clicking
       $("#torpedoCount").text("Game over. You LOSE!"); //set message
       displayShips(this); //then display all ships
