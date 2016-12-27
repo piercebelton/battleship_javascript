@@ -7,7 +7,7 @@ $(document).ready(function() {
   setXBlockShips(2, 2);
   setXBlockShips(1, 1);
   showShipCount();
-  // displayShips(); // take this off to hide ships until click
+  displayShips(); // take this off to hide ships until click
 
 
   $("td").on("click", function() {
